@@ -1,7 +1,1 @@
-[
-    {
-        "_Curso__nome": "Java",
-        "_Curso__duracao": "300",
-        "_Curso__certificado": true
-    }
-]
+[{"_Curso__nome": "Java", "_Curso__duracao": "300", "_Curso__certificado": "sim"}, {"_Curso__nome": "PHP", "_Curso__duracao": "200", "_Curso__certificado": "sim "}, {"_Curso__nome": "Python", "_Curso__duracao": "400", "_Curso__certificado": "sim"}]

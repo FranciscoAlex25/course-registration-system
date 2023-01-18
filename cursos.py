@@ -4,7 +4,7 @@ import os
 
 
 class Curso:
-    def __init__(self, nome, duracao, certificado=True):
+    def __init__(self, nome, duracao, certificado='sim'):
         self.__nome = nome 
         self.__duracao = duracao
         self.__certificado = certificado
@@ -26,7 +26,7 @@ class Curso:
         self.__duracao
 
     # cadastra  os cursos pelo gerente
-    def cadastrar_cursos(self, nome, duracao, certificado=True):
+    def cadastrar_cursos(self, nome, duracao, certificado='sim'):
         curso = Curso(nome, duracao, certificado)
 
         Database.add_cursos_json(self, curso)
@@ -39,7 +39,6 @@ class Curso:
         os.system('clear')
 
         # percorre os cursos e exibe no terminal 
-        print(80 * '-', end='')
         for curso in cursos:
             print(f'''
             Nome: {curso["_Curso__nome"]} | Duração: {curso["_Curso__duracao"]} horas | Certificado: {curso["_Curso__certificado"]}

@@ -12,5 +12,19 @@
         "_Pessoa__cpf": "333.333.333-22",
         "_Gerente__codigo": "123",
         "_Gerente__email": "@gmail.com"
+    },
+    {
+        "_Pessoa__nome": "ana",
+        "_Pessoa__idade": "20",
+        "_Pessoa__cpf": "343.444.555-32",
+        "_Gerente__codigo": "234",
+        "_Gerente__email": "@gmail.com"
+    },
+    {
+        "_Pessoa__nome": "jose",
+        "_Pessoa__idade": "23",
+        "_Pessoa__cpf": "332.333.111-21",
+        "_Gerente__codigo": "234",
+        "_Gerente__email": "@gmail.com"
     }
 ]
