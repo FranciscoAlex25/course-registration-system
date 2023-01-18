@@ -1,1 +1,16 @@
-[{"_Pessoa__nome": "alex", "_Pessoa__idade": "22", "_Pessoa__cpf": "232.443.234-12", "_Gerente__codigo": "123", "_Gerente__email": "franciscoalex@gmail.com"}]
+[
+    {
+        "_Pessoa__nome": "alex",
+        "_Pessoa__idade": "22",
+        "_Pessoa__cpf": "232.443.234-12",
+        "_Gerente__codigo": "123",
+        "_Gerente__email": "franciscoalex@gmail.com"
+    },
+    {
+        "_Pessoa__nome": "pedro",
+        "_Pessoa__idade": "32",
+        "_Pessoa__cpf": "333.333.333-22",
+        "_Gerente__codigo": "123",
+        "_Gerente__email": "@gmail.com"
+    }
+]

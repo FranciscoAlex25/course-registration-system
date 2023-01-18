@@ -1,5 +1,5 @@
 from cursos import Curso
-
+from gerente_admin import Gerente_admin
 
 class Main:
     def __init__(self):
@@ -22,7 +22,7 @@ class Main:
         self.escolha = input('DIGITE O NÚMERO DE SUA OPÇÃO: ')
 
         self.opcoes = {
-            '1': lambda: self.entrar_gerente(self),
+            '1': lambda: Gerente_admin(),
             '2': lambda: Curso.listar_cursos(self), 
             '3': lambda: self.entrar_area_usuario(self)
         }
