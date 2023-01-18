@@ -1,4 +1,6 @@
 from database import Database
+import json 
+import os 
 
 
 class Curso:
@@ -28,6 +30,19 @@ class Curso:
 
         Database.add_cursos_json(self, curso)
 
+    def listar_cursos(self):
+        with open('cursos.json', 'r', encoding='UTF-8') as arquivo:
+            cursos = json.load(arquivo)
+
+        os.system('clear')
+
+        print(80 * '-')
+        for curso in cursos:
+            print(f'''
+            Nome: {curso["_Curso__nome"]} | Duração: {curso["_Curso__duracao"]} horas | Certificado: {curso["_Curso__certificado"]}
+            '''.center(100))
+        print(80 * '-')
+
 
 if __name__ == '__main__':
-    Curso.cadastrar_curso('', 'Java', '300')
+    Curso.listar_cursos('')

@@ -34,3 +34,20 @@ class Database:
             with open(caminho + '/cursos.json', 'w+', encoding='UTF-8') as arquivo:
                 lista_dos_cursos.append(vars(curso))
                 json.dump(lista_dos_cursos, arquivo)
+
+    def add_clientes_json(self, cliente):
+        try:
+            with open(caminho + '/clientes.json', 'r', encoding='UTF-8') as arquivo:
+                lista_dos_clientes = json.load(arquivo)
+                lista_dos_clientes.append(vars(cliente))
+
+                print(lista_dos_clientes)
+        
+            with open(caminho + '/clientes.json', 'w+', encoding='UTF-8') as arquivo:
+                json.dump(lista_dos_clientes, arquivo)     
+        except:
+            lista_dos_clientes = []
+            with open(caminho + '/clientes.json', 'w+', encoding='UTF-8') as arquivo:
+                lista_dos_clientes.append(vars(cliente))
+                json.dump(lista_dos_clientes, arquivo)
+
