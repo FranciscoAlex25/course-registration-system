@@ -10,8 +10,6 @@ class Main:
         print('CURSOS ONLINE'.center(80))
         print(80 * '*')
 
-        print()
-
         print(80 * '-')
         print('GERENTE(1) - CURSOS(2) - USUARIO(3)'.center(80))
         print(80 * '-')     
@@ -30,7 +28,7 @@ class Main:
         for opcao in self.opcoes.keys():
             if self.escolha == opcao:
                 self.opcoes[opcao]()
-
+       
         self.exibir_menu()
 
 Main()

@@ -36,12 +36,11 @@ class Curso:
 
         os.system('clear')
 
-        print(80 * '-')
+        print(80 * '-', end='')
         for curso in cursos:
             print(f'''
             Nome: {curso["_Curso__nome"]} | Duração: {curso["_Curso__duracao"]} horas | Certificado: {curso["_Curso__certificado"]}
             '''.center(100))
-        print(80 * '-')
 
 
 if __name__ == '__main__':
