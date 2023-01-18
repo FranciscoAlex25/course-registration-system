@@ -25,17 +25,20 @@ class Curso:
     def duracao(self):
         self.__duracao
 
-    def cadastrar_curso(self, nome, duracao, certificado=True):
+    # cadastra  os cursos pelo gerente
+    def cadastrar_cursos(self, nome, duracao, certificado=True):
         curso = Curso(nome, duracao, certificado)
 
         Database.add_cursos_json(self, curso)
 
+    # lista os cursos 
     def listar_cursos(self):
         with open('cursos.json', 'r', encoding='UTF-8') as arquivo:
             cursos = json.load(arquivo)
 
         os.system('clear')
 
+        # percorre os cursos e exibe no terminal 
         print(80 * '-', end='')
         for curso in cursos:
             print(f'''

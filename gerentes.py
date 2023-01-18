@@ -54,6 +54,7 @@ class Gerente(Pessoa):
     def email(self, email):
         self.__email = email
 
+    # cadastra gerente pelo gerente principal
     def cadastrar_gerente(self, nome, idade, cpf, codigo, email):
         gerente = Gerente(nome, idade, cpf, codigo, email)
         Database.add_gerentes_json(self, gerente)

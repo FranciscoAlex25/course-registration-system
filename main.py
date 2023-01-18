@@ -5,6 +5,7 @@ class Main:
     def __init__(self):
         self.exibir_menu()
     
+    # exibe o menu iniciar
     def exibir_menu(self):
         print(80 * '*')
         print('CURSOS ONLINE'.center(80))
@@ -16,6 +17,7 @@ class Main:
 
         self.verificar_escolha()
 
+    # verifica qual escolha o usuário fez e chama a função
     def verificar_escolha(self):
         self.escolha = input('DIGITE O NÚMERO DE SUA OPÇÃO: ')
 
@@ -30,5 +32,6 @@ class Main:
                 self.opcoes[opcao]()
        
         self.exibir_menu()
+
 
 Main()

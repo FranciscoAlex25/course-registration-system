@@ -33,6 +33,7 @@ class Cliente(Pessoa):
     def curso(self, curso):
         self.__curso = curso
 
+    # cadastrar clientes pelo gerente
     def cadastrar_clientes(self, nome, idade, cpf, email, senha, curso=None):
         cliente = Cliente(nome, idade, cpf, email, senha, curso)
 
