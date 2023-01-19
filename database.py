@@ -1,4 +1,6 @@
-import json, sys, os
+import json
+import sys
+import os
 caminho = os.path.dirname(__file__)
 
 
@@ -7,6 +9,7 @@ class Database:
         Este método de instância busca os gerentes já cadastrados na 
         "base de dados" e adiciona o novo gerente que está sendo cadastrado
     '''
+
     def add_gerentes_json(self, gerente):
         # Tenta ler o arquiso Json se não estiver vazio
         try:
@@ -29,6 +32,7 @@ class Database:
         Este método de instância busca os cursos já cadastrados na 
         "base de dados" e adiciona o novo curso que está sendo cadastrado
     '''
+
     def add_cursos_json(self, curso):
         # Tenta ler o arquiso Json se não estiver vazio
         try:
@@ -37,9 +41,9 @@ class Database:
                 lista_dos_cursos.append(vars(curso))
 
                 print(lista_dos_cursos)
-        
+
             with open(caminho + '/cursos.json', 'w+', encoding='UTF-8') as arquivo:
-                json.dump(lista_dos_cursos, arquivo)     
+                json.dump(lista_dos_cursos, arquivo)
         # adiciona um novo curso se o arquivo Json estiver vazio
         except:
             lista_dos_cursos = []
@@ -51,6 +55,7 @@ class Database:
         Este método de instância busca os clientes já cadastrados na 
         "base de dados" e adiciona o novo cliente que está sendo cadastrado
     '''
+
     def add_clientes_json(self, cliente):
         # Tenta ler o arquiso Json se não estiver vazio
         try:
@@ -59,13 +64,12 @@ class Database:
                 lista_dos_clientes.append(vars(cliente))
 
                 print(lista_dos_clientes)
-        
+
             with open(caminho + '/clientes.json', 'w+', encoding='UTF-8') as arquivo:
-                json.dump(lista_dos_clientes, arquivo)     
+                json.dump(lista_dos_clientes, arquivo)
         # adiciona um cliente gerente se o arquivo Json estiver vazio
         except:
             lista_dos_clientes = []
             with open(caminho + '/clientes.json', 'w+', encoding='UTF-8') as arquivo:
                 lista_dos_clientes.append(vars(cliente))
                 json.dump(lista_dos_clientes, arquivo)
-

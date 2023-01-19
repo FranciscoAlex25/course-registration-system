@@ -60,6 +60,7 @@ class Gerente(Pessoa):
         gerente = Gerente(nome, idade, cpf, codigo, email)
         Database.add_gerentes_json(self, gerente)
 
+    # lista todos os gerentes cadastrados na "base de dados"
     def listar_gerentes(self):
         with open('gerente.json', 'r', encoding='UTF-8') as arquivo:
             lista_de_gerentes = json.load(arquivo)

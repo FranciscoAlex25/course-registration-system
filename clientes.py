@@ -1,9 +1,10 @@
 from gerentes import Pessoa
 from database import Database
+import json
 
 
 class Cliente(Pessoa):
-    def __init__(self, nome, idade, cpf, email, senha, curso=None):
+    def __init__(self, nome, idade, cpf, email, senha=None, curso=None):
         super(Cliente, self).__init__(nome, idade, cpf)
         self.__email = email
         self.__senha = senha
@@ -12,33 +13,45 @@ class Cliente(Pessoa):
     @property
     def email(self):
         return self.__email
-            
+
     @property
     def senha(self):
         return self.__senha
-    
+
     @property
     def curso(self):
         return self.__curso
-        
+
     @email.setter
     def email(self, email):
         self.__email = email
-        
+
     @senha.setter
     def senha(self, senha):
         self.__senha = senha
-    
+
     @curso.setter
     def curso(self, curso):
         self.__curso = curso
 
     # cadastrar clientes pelo gerente
-    def cadastrar_clientes(self, nome, idade, cpf, email, senha, curso=None):
+    def cadastrar_clientes(self, nome, idade, cpf, email, senha=None, curso=None):
         cliente = Cliente(nome, idade, cpf, email, senha, curso)
 
         Database.add_clientes_json(self, cliente)
 
+    def listar_cursos(self):
+        with open('clientes.json', 'r', encoding='UTF-8') as arquivo:
+            lista_de_clientes = json.load(arquivo)
+
+        for cliente in lista_de_clientes:
+            print(f'''
+            NOME: {cliente["_Pessoa__nome"]} | IDADE: {cliente["_Pessoa__idade"]} 
+            CPF: {cliente["_Pessoa__cpf"]} | CÓDIGO: {cliente["_Cliente__email"]} 
+            SENHA: {cliente["_Cliente__senha"]} | CURSO: {cliente["_Cliente__curso"]}
+            '''.center(100))
+
 
 if __name__ == '__main__':
-    Cliente.cadastrar_clientes('', 'Alex', 22, '203.322.333-12', '@gmail.com', '12345')
+    Cliente.cadastrar_clientes(
+        '', 'Alex', 22, '203.322.333-12', '@gmail.com', '12345')

@@ -1,9 +1,11 @@
 from cursos import Curso
 from gerente_admin import Gerente_admin
+import os
 
 
 class Main:
     def __init__(self):
+        os.system('clear')
         self.exibir_menu()
 
     # exibe o menu iniciar
@@ -20,6 +22,7 @@ class Main:
 
     # verifica qual escolha o usuário fez e chama a função
     def verificar_escolha(self):
+        print()
         self.escolha = input('DIGITE O NÚMERO DE SUA OPÇÃO: ')
 
         self.opcoes = {
@@ -28,6 +31,7 @@ class Main:
             '3': lambda: self.entrar_area_usuario(self)
         }
 
+        # chamando a ação de acordo com os dados de entrada
         for opcao in self.opcoes.keys():
             if self.escolha == opcao:
                 self.opcoes[opcao]()

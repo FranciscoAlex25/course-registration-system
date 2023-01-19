@@ -1,0 +1,10 @@
+[
+    {
+        "_Pessoa__nome": "alex",
+        "_Pessoa__idade": "12",
+        "_Pessoa__cpf": "333.333.333-22",
+        "_Cliente__email": "@gmail.com",
+        "_Cliente__senha": null,
+        "_Cliente__curso": null
+    }
+]
