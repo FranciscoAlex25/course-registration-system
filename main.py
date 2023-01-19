@@ -1,6 +1,7 @@
 from cursos import Curso
 from gerente_admin import Gerente_admin
 import os
+import json
 
 
 class Main:
@@ -10,6 +11,7 @@ class Main:
 
     # exibe o menu iniciar
     def exibir_menu(self):
+        print()
         print(80 * '*')
         print('CURSOS ONLINE'.center(80))
         print(80 * '*')
@@ -27,7 +29,7 @@ class Main:
 
         self.opcoes = {
             '1': lambda: Gerente_admin(),
-            '2': lambda: Curso.listar_cursos(self),
+            '2': lambda: self.listar_cursos(),
             '3': lambda: self.entrar_area_usuario(self)
         }
 
@@ -37,6 +39,22 @@ class Main:
                 self.opcoes[opcao]()
 
         self.exibir_menu()
+
+    # lista os cursos cadastrados para o usuário
+    def listar_cursos(self):
+        with open('cursos.json', 'r', encoding='UTF-8') as arquivo:
+            cursos = json.load(arquivo)
+
+        os.system('clear')
+
+        # percorre os cursos e exibe no terminal
+        print(80 * '#')
+        for curso in cursos:
+            print()
+            print(
+                f'Nome: {curso["_Curso__nome"]} Certificado: {curso["_Curso__certificado"]} Duração: {curso["_Curso__duracao"]}'.center(80))
+        print()
+        print(80 * '#')
 
 
 Main()

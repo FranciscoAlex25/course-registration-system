@@ -86,7 +86,7 @@ class Gerente_admin:
             os.system('clear')
 
             print(80 * '#')
-            Cliente.listar_cursos(self)
+            Cliente.listar_clientes(self)
             print(80 * '#')
 
             self.exibir_menu_admin(self.usuario)

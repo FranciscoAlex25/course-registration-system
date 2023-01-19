@@ -36,8 +36,6 @@ class Curso:
         with open('cursos.json', 'r', encoding='UTF-8') as arquivo:
             cursos = json.load(arquivo)
 
-        os.system('clear')
-
         # percorre os cursos e exibe no terminal
         for curso in cursos:
             print(f'''

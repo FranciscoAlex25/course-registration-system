@@ -40,7 +40,8 @@ class Cliente(Pessoa):
 
         Database.add_clientes_json(self, cliente)
 
-    def listar_cursos(self):
+    # listar os clientes cadastrados para o ADMIN
+    def listar_clientes(self):
         with open('clientes.json', 'r', encoding='UTF-8') as arquivo:
             lista_de_clientes = json.load(arquivo)
 
