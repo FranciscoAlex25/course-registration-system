@@ -13,6 +13,8 @@ class UsuariosArea:
     '''
 
     def verificar_usuario(self):
+        os.system('clear')
+
         self.usuario = input('DIGITE SEU NOME DE USUÁRIO: ').strip().lower()
 
         # busca a lista de todos os usuários da "base de dados"
@@ -33,15 +35,15 @@ class UsuariosArea:
 
     # exibe o menu de opções do usuário
     def exibir_menu(self, usuario):
-        print()
+        os.system('clear')
+
         print(80 * '*')
-        print(f'BEM VINDO(A) {usuario}'.center(80).capitalize())
+        print(f'BEM VINDO(A) {usuario}'.center(80))
         print(80 * '*')
 
         print(80 * '-')
         print('CURSOS MATRICULADOS (1) INCREVER-SE (2) SAIR(3)'.center(80))
         print(80 * '-')
-
         self.verificar_escolha()
 
     # verifica qual opção o usuário escolheu do menu e chama o método relacionado
@@ -57,26 +59,13 @@ class UsuariosArea:
             print(80 * '#')
             Curso.listar_cursos(self)
             print(80 * '#')
+            print()
 
             self.opc = input('DIGITE O NOME DO CURSO QUE DESEJA FAZER: ')
-            self.verificar_cursos_existe(self.opc)
-
-    # cadastrar senha do usuário caso seja seu primeiro acesso
-    def cadastrar_senha(self, usuario, senha):
-        print('entrou no adastrar senha ')
-        with open('clientes.json', 'r', encoding='UTF-8') as arquivo:
-            lista_de_clientes = json.load(arquivo)
-            print('leu arquivo')
-
-        for cliente in lista_de_clientes:
-            if cliente['_Pessoa__nome'] == usuario:
-                cliente.update({'_Cliente__senha': senha})
-                with open('clientes.json', 'w+', encoding='UTF-8') as arquivo:
-                    json.dump(lista_de_clientes, arquivo)
-                break
+            self.verificar_curso_existe(self.opc)
 
     # verificar se o curso que o usuário digitou existe na "base de dados"
-    def verificar_cursos_existe(self, curso_escolhido):
+    def verificar_curso_existe(self, curso_escolhido):
 
         with open('cursos.json', 'r', encoding='UTF-8') as arquivo:
             lista_de_cursos = json.load(arquivo)
@@ -85,6 +74,8 @@ class UsuariosArea:
             if curso_escolhido in curso.values():
                 # passa um dicionário como parâmetro
                 self.cadastrar_curso(curso)
+
+                os.system('clear')
                 self.exibir_menu(self.usuario)
 
     # cadastra o usuário no curso que ele deseja
@@ -105,12 +96,24 @@ class UsuariosArea:
                     desejado pelo usuário estiver presente na "base de dados",
                     este curso é vinculado ao cliente
                 '''
-                for c in lista_de_cursos:
-                    print(c)
-                    if c['_Curso__nome'] == cursos['_Curso__nome']:
-                        cliente.update({'_Cliente__curso': c})
-
+                for curso in lista_de_cursos:
+                    if curso['_Curso__nome'] == cursos['_Curso__nome']:
+                        cliente.update({'_Cliente__curso': curso})
                         # enviar o cliente com o curso cadastrado na base de dados
                         with open('clientes.json', 'w+', encoding='UTF-8') as arquivo:
                             json.dump(lista_de_clientes, arquivo)
                         break
+
+    # cadastrar senha do usuário caso seja seu primeiro acesso
+    def cadastrar_senha(self, usuario, senha):
+        print('entrou no adastrar senha ')
+        with open('clientes.json', 'r', encoding='UTF-8') as arquivo:
+            lista_de_clientes = json.load(arquivo)
+            print('leu arquivo')
+
+        for cliente in lista_de_clientes:
+            if cliente['_Pessoa__nome'] == usuario:
+                cliente.update({'_Cliente__senha': senha})
+                with open('clientes.json', 'w+', encoding='UTF-8') as arquivo:
+                    json.dump(lista_de_clientes, arquivo)
+                break
