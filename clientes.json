@@ -4,7 +4,11 @@
         "_Pessoa__idade": "12",
         "_Pessoa__cpf": "333.333.333-22",
         "_Cliente__email": "@gmail.com",
-        "_Cliente__senha": null,
-        "_Cliente__curso": null
+        "_Cliente__senha": "123",
+        "_Cliente__curso": {
+            "_Curso__nome": "PHP",
+            "_Curso__duracao": "200",
+            "_Curso__certificado": "sim "
+        }
     }
 ]

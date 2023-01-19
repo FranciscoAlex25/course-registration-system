@@ -1,5 +1,6 @@
 from cursos import Curso
 from gerente_admin import Gerente_admin
+from area_usuarios import UsuariosArea
 import os
 import json
 
@@ -30,7 +31,7 @@ class Main:
         self.opcoes = {
             '1': lambda: Gerente_admin(),
             '2': lambda: self.listar_cursos(),
-            '3': lambda: self.entrar_area_usuario(self)
+            '3': lambda: UsuariosArea()
         }
 
         # chamando a ação de acordo com os dados de entrada
