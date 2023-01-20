@@ -1,5 +1,4 @@
-import json
-import os
+import json, os
 from cursos import Curso
 
 
@@ -24,13 +23,15 @@ class UsuariosArea:
         # verifica se usuário tem senha ou não. Se não tiver, define uma.
         for cliete in lista_de_clientes:
             if self.usuario in cliete.values() and cliete['_Cliente__senha'] == None:
-                self.senha = input('DIGITE UMA SENHA, POR FAVOR: ')
+                self.senha = input('DIGITE UMA SENHA, POR FAVOR: ').strip().lower()
                 self.cadastrar_senha(self.usuario, self.senha)
+                os.system('clear')
                 self.exibir_menu(self.usuario)
 
             elif self.usuario in cliete.values() and cliete['_Cliente__senha'] != None:
                 self.senha = input(
-                    f'DIGITE SUA SENHA DE CLIENTE {self.usuario}: ')
+                    f'DIGITE SUA SENHA DE CLIENTE {self.usuario}: ').strip().lower()
+                os.system('clear')
                 self.exibir_menu(self.usuario)
 
     # exibe o menu de opções do usuário
@@ -48,7 +49,7 @@ class UsuariosArea:
     # verifica qual opção o usuário escolheu do menu e chama o método relacionado
     def verificar_escolha(self):
         self.escolha = input(
-            f'DIGITE O NÚMERO DE SUA ESCOLHA {self.usuario}: '.capitalize())
+            f'DIGITE O NÚMERO DE SUA ESCOLHA {self.usuario}: '.lower().strip()).strip().lower()
 
         if self.escolha == '1':
             self.ver_cursos_matriculados()
@@ -61,8 +62,17 @@ class UsuariosArea:
             print(80 * '#')
             print()
 
-            self.opc = input('DIGITE O NOME DO CURSO QUE DESEJA FAZER: ')
+            self.opc = input('DIGITE O NOME DO CURSO QUE DESEJA FAZER: ').strip().lower()
             self.verificar_curso_existe(self.opc)
+        elif self.escolha == '3':
+            os.system('clear')
+            return
+        else:
+            os.system('clear')
+            print('ESCOLHA INVÁLIDA!')
+            print()
+
+            self.exibir_menu(self.usuario)
 
     # verificar se o curso que o usuário digitou existe na "base de dados"
     def verificar_curso_existe(self, curso_escolhido):
@@ -77,6 +87,12 @@ class UsuariosArea:
 
                 os.system('clear')
                 self.exibir_menu(self.usuario)
+                return
+
+        os.system('clear')
+        print('CURSO NÃO EXISTE')
+
+        self.exibir_menu(self.usuario)
 
     # cadastra o usuário no curso que ele deseja
     def cadastrar_curso(self, cursos):
@@ -102,6 +118,7 @@ class UsuariosArea:
                         # enviar o cliente com o curso cadastrado na base de dados
                         with open('clientes.json', 'w+', encoding='UTF-8') as arquivo:
                             json.dump(lista_de_clientes, arquivo)
+                        print('INSCRITO NO CURSO COM SUCESSO!')
                         break
 
     # cadastrar senha do usuário caso seja seu primeiro acesso

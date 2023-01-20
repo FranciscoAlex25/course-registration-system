@@ -1,8 +1,7 @@
 from cursos import Curso
 from gerente_admin import Gerente_admin
 from area_usuarios import UsuariosArea
-import os
-import json
+import os, json
 
 
 class Main:
@@ -34,12 +33,20 @@ class Main:
             '3': lambda: UsuariosArea()
         }
 
-        # chamando a ação de acordo com os dados de entrada
-        for opcao in self.opcoes.keys():
-            if self.escolha == opcao:
-                self.opcoes[opcao]()
+        # verifica se a opção digitada é diferente das opções ofertadas
+        if self.escolha != '1' and self.escolha != '2' and self.escolha != '3':
+            os.system('clear')
+            print('ESCOLHA INVÁLIDA!')
+            print()
 
-        self.exibir_menu()
+            self.exibir_menu()
+        else:
+            # chamando a ação de acordo com os dados de entrada
+            for opcao in self.opcoes.keys():
+                if self.escolha == opcao:
+                    self.opcoes[opcao]()
+
+            self.exibir_menu()
 
     # lista os cursos cadastrados para o usuário
     def listar_cursos(self):

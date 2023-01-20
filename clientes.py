@@ -58,8 +58,3 @@ class Cliente(Pessoa):
                 CPF: {cliente["_Pessoa__cpf"]} | CÓDIGO: {cliente["_Cliente__email"]} 
                 SENHA: {cliente["_Cliente__senha"]} | CURSO: SEM CURSO
                 '''.center(100))
-
-
-if __name__ == '__main__':
-    Cliente.cadastrar_clientes(
-        '', 'Alex', 22, '203.322.333-12', '@gmail.com', '12345')

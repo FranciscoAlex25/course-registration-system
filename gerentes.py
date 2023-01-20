@@ -70,8 +70,3 @@ class Gerente(Pessoa):
             NOME: {gerente["_Pessoa__nome"]} | IDADE: {gerente["_Pessoa__idade"]} 
             CPF: {gerente["_Pessoa__cpf"]} | CÓDIGO: {gerente["_Gerente__codigo"]} EMAIL: {gerente["_Gerente__email"]}
             '''.center(100))
-
-
-if __name__ == '__main__':
-    Gerente.cadastrar_gerente(
-        '', 'alex', '22', '232.443.234-12', '123', 'franciscoalex@gmail.com')

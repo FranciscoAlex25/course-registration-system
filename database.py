@@ -1,6 +1,4 @@
-import json
-import sys
-import os
+import json, os
 caminho = os.path.dirname(__file__)
 
 

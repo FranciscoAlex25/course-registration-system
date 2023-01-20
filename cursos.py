@@ -1,6 +1,5 @@
 from database import Database
-import json
-import os
+import json, os
 
 
 class Curso:
@@ -41,7 +40,3 @@ class Curso:
             print(f'''
             Nome: {curso["_Curso__nome"]} | Duração: {curso["_Curso__duracao"]} horas | Certificado: {curso["_Curso__certificado"]}
             '''.center(100))
-
-
-if __name__ == '__main__':
-    Curso.listar_cursos('')

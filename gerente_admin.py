@@ -1,8 +1,7 @@
 from gerentes import Gerente
 from cursos import Curso
 from clientes import Cliente
-import json
-import os
+import json, os
 
 
 class Gerente_admin:
@@ -17,8 +16,8 @@ class Gerente_admin:
     def verificar_gerente(self):
         os.system('clear')
 
-        self.usuario = input('Digite seu usuário: ')
-        self.codigo = input(f'Digite seu código de acesso {self.usuario}: ')
+        self.usuario = input('Digite seu usuário: ').lower().strip()
+        self.codigo = input(f'Digite seu código de acesso {self.usuario}: ').lower().strip()
 
         # lendo a "base de dados"
         with open('gerente.json', 'r', encoding='UTF-8') as arquivo:
@@ -52,7 +51,7 @@ class Gerente_admin:
     # analisa a escolha digita pelo gerente e executa a ação
     def verificar_escolha(self):
         print()
-        self.escolha = input('DIGITE O NÚMERO DE SUA OPÇÃO: ')
+        self.escolha = input('DIGITE O NÚMERO DE SUA OPÇÃO: ').lower().strip()
 
         if self.escolha == '1':
             self.pegar_dados_gerente()
@@ -99,11 +98,11 @@ class Gerente_admin:
 
     # pega os dados por INPUT do gerente e cadastra
     def pegar_dados_gerente(self):
-        self.nome = input('Digite o nome do gerente: ')
-        self.idade = input('Digite a idade do gerente: ')
-        self.cpf = input('Digite o CPF do gerente: ')
-        self.codigo = input('Digite o código de acesso do gerente: ')
-        self.email = input('Digite o email do gerente: ')
+        self.nome = input('Digite o nome do gerente: ').lower().strip()
+        self.idade = input('Digite a idade do gerente: ').lower().strip()
+        self.cpf = input('Digite o CPF do gerente: ').lower().strip()
+        self.codigo = input('Digite o código de acesso do gerente: ').lower().strip()
+        self.email = input('Digite o email do gerente: ').lower().strip()
 
         Gerente.cadastrar_gerente(
             '', self.nome, self.idade, self.cpf, self.codigo, self.email)
@@ -113,9 +112,9 @@ class Gerente_admin:
 
     # pega os dados por INPUT do curso e cadastra
     def pegar_dados_curso(self):
-        self.nome = input('Digite o nome do curso: ')
-        self.duracao = input('Digite a duração do curso: ')
-        self.certificado = input('Tem certificado? ')
+        self.nome = input('Digite o nome do curso: ').lower().strip()
+        self.duracao = input('Digite a duração do curso: ').lower().strip()
+        self.certificado = input('Tem certificado? ').lower().strip()
 
         Curso.cadastrar_cursos(self, self.nome, self.duracao, self.certificado)
 
@@ -124,10 +123,10 @@ class Gerente_admin:
 
     # pega os dados por INPUT do cliente e cadastra
     def pegar_dados_cliente(self):
-        self.nome = input('Digite o nome do cliente: ')
-        self.idade = input('Digite a idade do cliente: ')
-        self.cpf = input('Digite o CPF do cliente: ')
-        self.email = input('Digite o email do cliente: ')
+        self.nome = input('Digite o nome do cliente: ').lower().strip()
+        self.idade = input('Digite a idade do cliente: ').lower().strip()
+        self.cpf = input('Digite o CPF do cliente: ').lower().strip()
+        self.email = input('Digite o email do cliente: ').lower().strip()
 
         Cliente.cadastrar_clientes(
             self, self.nome, self.idade, self.cpf, self.email)
