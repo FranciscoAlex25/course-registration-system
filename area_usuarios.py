@@ -35,7 +35,6 @@ class UsuariosArea:
 
     # exibe o menu de opções do usuário
     def exibir_menu(self, usuario):
-        os.system('clear')
 
         print(80 * '*')
         print(f'BEM VINDO(A) {usuario}'.center(80))
@@ -52,7 +51,8 @@ class UsuariosArea:
             f'DIGITE O NÚMERO DE SUA ESCOLHA {self.usuario}: '.capitalize())
 
         if self.escolha == '1':
-            ...
+            self.ver_cursos_matriculados()
+
         elif self.escolha == '2':
             os.system('clear')
 
@@ -98,7 +98,7 @@ class UsuariosArea:
                 '''
                 for curso in lista_de_cursos:
                     if curso['_Curso__nome'] == cursos['_Curso__nome']:
-                        cliente.update({'_Cliente__curso': curso})
+                        cliente['_Cliente__curso'].append(curso)
                         # enviar o cliente com o curso cadastrado na base de dados
                         with open('clientes.json', 'w+', encoding='UTF-8') as arquivo:
                             json.dump(lista_de_clientes, arquivo)
@@ -117,3 +117,25 @@ class UsuariosArea:
                 with open('clientes.json', 'w+', encoding='UTF-8') as arquivo:
                     json.dump(lista_de_clientes, arquivo)
                 break
+
+    # analisa os cursos que o usuário está matriculado
+    def ver_cursos_matriculados(self):
+        with open('clientes.json', 'r', encoding='UTF-8') as arquivo:
+            lista_de_clientes = json.load(arquivo)
+        
+        for cliente in lista_de_clientes:
+            if cliente['_Pessoa__nome'] == self.usuario:
+                self.exibir_cursos_cliente(cliente)
+                self.exibir_menu(self.usuario)
+    
+    # mostra como saída os cursos que o usuário está matriculádo
+    def exibir_cursos_cliente(self, cliente):
+        os.system('clear')
+
+        for cursos in cliente['_Cliente__curso']:
+            print(f'''
+            Curso: {cursos['_Curso__nome']},
+            Certificado: {cursos['_Curso__certificado']}
+            Duração: {cursos['_Curso__duracao']}
+            ''')
+            print(end=' ')

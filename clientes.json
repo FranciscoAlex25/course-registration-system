@@ -5,10 +5,22 @@
         "_Pessoa__cpf": "333.333.333-22",
         "_Cliente__email": "@gmail.com",
         "_Cliente__senha": "123",
-        "_Cliente__curso": {
-            "_Curso__nome": "PHP",
-            "_Curso__duracao": "200",
-            "_Curso__certificado": "sim "
-        }
+        "_Cliente__curso": [
+            {
+                "_Curso__nome": "Python",
+                "_Curso__duracao": "400",
+                "_Curso__certificado": "sim"
+            },
+            {
+                "_Curso__nome": "PHP",
+                "_Curso__duracao": "200",
+                "_Curso__certificado": "sim "
+            },
+            {
+                "_Curso__nome": "Java",
+                "_Curso__duracao": "300",
+                "_Curso__certificado": "sim"
+            }
+        ]
     }
 ]
