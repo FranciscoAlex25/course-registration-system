@@ -122,12 +122,12 @@ class UsuariosArea:
     def ver_cursos_matriculados(self):
         with open('clientes.json', 'r', encoding='UTF-8') as arquivo:
             lista_de_clientes = json.load(arquivo)
-        
+
         for cliente in lista_de_clientes:
             if cliente['_Pessoa__nome'] == self.usuario:
                 self.exibir_cursos_cliente(cliente)
                 self.exibir_menu(self.usuario)
-    
+
     # mostra como saída os cursos que o usuário está matriculádo
     def exibir_cursos_cliente(self, cliente):
         os.system('clear')
