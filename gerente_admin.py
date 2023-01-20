@@ -28,7 +28,6 @@ class Gerente_admin:
         for gerente in lista_de_gerentes:
             if (self.usuario not in gerente.values()) or (self.codigo not in gerente.values()):
                 os.system('clear')
-                print('DESCULPE, GERENTE OU SENHA INVÁLIDOS!')
                 print()
             else:
                 os.system('clear')
